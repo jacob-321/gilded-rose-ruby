@@ -7,6 +7,13 @@ class GildedRose
     @quality = quality
   end
 
+  class Normal
+    attr_reader :quality, :days_remaining
+
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+
   def tick
 
     case name
@@ -23,7 +30,7 @@ class GildedRose
     if @name != 'Aged Brie' && @name != "Backstage passes to a TAFKAL80ETC concert"
   end
 
-  def normal_tick
+  def tick
     @days_remaining -= 1
     return if @quality == 0
 
@@ -40,7 +47,6 @@ class GildedRose
   end
 
   def sulfuras_tick
-
   end
 
   def backstage_tick
