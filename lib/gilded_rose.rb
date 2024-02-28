@@ -1,15 +1,23 @@
 class GildedRose
   attr_reader :name, :days_remaining, :quality
 
-  def normal_tick
-    @item = Normal.new(quality, days_remaining)
-    item.tick
+  def tick
+    case name
+    when 'normal'
+      @item = Normal.new(quality, days_remaining)
+      item.tick
+    when 'Aged Brie'
+      @item = Brie.new(quality, days_remaining)
+      item.tick
+    when 'Sulfuras, Hand of Ragnaros'
+      @item = Sulfuras.new(quality, days_remaining)
+      item.tick
+    when 'Backstage passes to a TAFKAL80ETC concert'
+      @item = Backstage.new(quality, days_remaining)
+      item.tick
+    end
   end
 
-  def brie_tick
-    @item = Brie.new(quality, days_remaining)
-    item.tick
-  end
 
   class Brie
     attr_reader :quality, :days_remaining
