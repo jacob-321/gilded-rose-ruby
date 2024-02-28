@@ -46,7 +46,21 @@ class GildedRose
 
 
   def sulfuras_tick
+    @item = Sulfuras.new(quality, days_remaining)
+    item.tick
   end
+
+  class Sulfuras
+    attr_reader :quality, :days_remaining
+
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+
+    def tick
+    end
+  end
+
 
   def backstage_tick
     @days_remaining -= 1
